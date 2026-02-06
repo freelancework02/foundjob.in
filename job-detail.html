@@ -9,185 +9,302 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
         }
 
-        .box-header {
-            font-weight: 800;
+        .nav-link:hover {
+            color: #fbbf24;
+        }
+
+        .sidebar-widget {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .widget-title {
+            background: #f3f4f6;
+            padding: 12px 16px;
+            font-weight: 700;
+            border-bottom: 1px solid #e5e7eb;
+            color: #1f2937;
+        }
+
+        /* Detail Specific Styles */
+        .job-header-card {
+            background: linear-gradient(to right, #ffffff, #f0f9ff);
+            border: 1px solid #e5e7eb;
+        }
+
+        .detail-section {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .detail-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #3b82f6;
+            display: inline-block;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-item {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #f3f4f6;
+        }
+
+        .info-label {
+            font-size: 12px;
             text-transform: uppercase;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            color: #6b7280;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
-        .info-table td,
-        .info-table th {
-            border: 1px solid #000;
-            padding: 5px;
-            vertical-align: top;
-        }
-
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 1rem;
+        .info-value {
             font-size: 14px;
+            color: #111827;
+            font-weight: 500;
         }
     </style>
 </head>
 
-<body class="min-h-screen">
+<body>
 
-    <!-- Header -->
-    <header class="bg-white p-6 text-center border-b-4 border-teal-700">
-        <div class="max-w-7xl mx-auto">
-            <h1 class="text-3xl md:text-5xl font-extrabold text-teal-800 tracking-tight cursor-pointer"
-                onclick="window.location.href='/'">FOUND JOB IN</h1>
-            <p class="text-xs md:text-sm font-bold text-slate-700 uppercase tracking-widest">
-                India's No. 1 Freelance, Remote & Part Time Job Portal
-            </p>
+    <!-- Top Bar (Consistent) -->
+    <div class="bg-blue-900 text-white py-1 text-xs">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex gap-4">
+                <span><i class="ph-fill ph-envelope"></i> contact@foundjob.in</span>
+            </div>
+            <div class="flex gap-3">
+                <a href="#" class="hover:text-blue-200"><i class="ph-fill ph-facebook-logo"></i></a>
+                <a href="#" class="hover:text-blue-200"><i class="ph-fill ph-twitter-logo"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header (Consistent) -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-20 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                    F</div>
+                <div>
+                    <h1
+                        class="text-2xl font-bold text-gray-800 leading-none group-hover:text-blue-600 transition-colors">
+                        FoundJob<span class="text-blue-600">.in</span></h1>
+                    <p class="text-[10px] text-gray-500 font-medium tracking-wide">Jobs, Careers & Tech Updates</p>
+                </div>
+            </a>
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex gap-6">
+                <a href="/" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors">Home</a>
+                <a href="#" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors">Jobs</a>
+                <a href="#" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors">Freelance</a>
+                <a href="#" class="text-gray-700 font-semibold hover:text-blue-600 transition-colors">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Navigation Bar -->
-    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
-        <div class="max-w-7xl mx-auto px-4">
-            <ul class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm font-bold uppercase py-4">
-                <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
-                <li><a href="/" class="hover:text-yellow-400 transition-colors">Latest Jobs</a></li>
-                <li><a href="/" class="hover:text-yellow-400 transition-colors">Tech Projects</a></li>
-                <li><a href="/" class="hover:text-yellow-400 transition-colors">Contact</a></li>
-            </ul>
+    <!-- Main Container -->
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Breadcrumb -->
+        <div class="text-sm text-gray-500 mb-6 font-medium">
+            <a href="/" class="hover:text-blue-600">Home</a> <i class="ph-bold ph-caret-right mx-1 text-xs"></i>
+            <span class="text-gray-800" id="breadcrumb-title">Job Details</span>
         </div>
-    </nav>
 
-    <div class="max-w-4xl mx-auto px-4 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
 
-        <!-- Job Title -->
-        <h1 class="text-center text-3xl font-extrabold text-red-700 mb-2 leading-tight" id="job-title">Loading Job
-            Details...</h1>
-        <div class="text-center font-bold text-slate-600 mb-8 text-lg" id="job-company"></div>
+            <!-- Left Content (Main) -->
+            <main class="w-full lg:w-2/3">
 
-        <!-- Detail Box Content -->
-        <div class="border border-black p-6 shadow-md">
-
-            <div class="mb-6">
-                <span class="text-pink-700 font-bold block mb-1 text-lg">Short Information: </span>
-                <span class="text-justify text-sm leading-relaxed text-slate-800" id="job-short-info">Loading...</span>
-            </div>
-
-            <!-- Important Dates & Fees Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <!-- Important Dates -->
-                <div class="border border-green-700 shadow-sm">
-                    <div class="bg-green-700 text-white font-bold p-2 text-center uppercase tracking-wide">Important
-                        Dates</div>
-                    <ul class="p-4 text-sm font-semibold space-y-3">
-                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-2"><span>Application
-                                Begin:</span> <span class="text-black font-bold" id="date-start">...</span></li>
-                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-2"><span>Last Date for
-                                Apply:</span> <span class="text-red-600 font-bold" id="date-end">...</span></li>
-                        <li class="flex justify-between"><span>Exam Date:</span> <span class="text-red-600 font-bold"
-                                id="date-exam">...</span></li>
-                    </ul>
-                </div>
-
-                <!-- Application Fee -->
-                <div class="border border-green-700 shadow-sm">
-                    <div class="bg-green-700 text-white font-bold p-2 text-center uppercase tracking-wide">Application
-                        Fee</div>
-                    <ul class="p-4 text-sm font-semibold space-y-3">
-                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-2"><span>General / OBC
-                                / EWS:</span> <span class="text-black font-bold" id="fee-gen">...</span></li>
-                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-2"><span>SC / ST /
-                                PH:</span> <span class="text-black font-bold" id="fee-scst">...</span></li>
-                        <li class="mt-2 text-xs font-normal text-slate-500 italic">Pay the Examination Fee Through <span
-                                id="fee-mode">...</span> Only.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Age Limit -->
-            <div class="border border-black mb-8 shadow-sm">
+                <!-- Job Header Card -->
                 <div
-                    class="bg-gray-100 text-black font-bold p-2 text-center border-b border-black uppercase text-sm tracking-wide">
-                    Age Limit as on 01/01/2026</div>
-                <div class="p-4 text-center text-sm font-bold flex flex-col md:flex-row justify-center gap-4 md:gap-12">
-                    <span class="p-2 bg-slate-50 rounded border border-slate-200">Minimum Age: <span
-                            class="text-red-700" id="age-min">..</span></span>
-                    <span class="p-2 bg-slate-50 rounded border border-slate-200">Maximum Age: <span
-                            class="text-red-700" id="age-max">..</span></span>
+                    class="bg-white rounded-xl border border-gray-200 p-6 md:p-8 mb-6 shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-3xl -mr-16 -mt-16"></div>
+
+                    <div class="relative z-10">
+                        <span
+                            class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4 inline-block">Full
+                            Time</span>
+                        <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2 leading-tight" id="job-title">
+                            Loading...</h1>
+
+                        <div class="flex flex-wrap gap-4 mt-4 text-sm font-medium text-gray-600">
+                            <div class="flex items-center gap-1.5"><i class="ph-fill ph-buildings text-blue-600"></i>
+                                <span id="job-company">...</span></div>
+                            <div class="flex items-center gap-1.5"><i class="ph-fill ph-map-pin text-blue-600"></i>
+                                Remote / India</div>
+                            <div class="flex items-center gap-1.5"><i class="ph-fill ph-clock text-blue-600"></i> Posted
+                                Today</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center pb-2 text-xs text-slate-500">Age Relaxation Extra as per Rules.</div>
-            </div>
 
-            <!-- Vacancy Details Table -->
-            <div class="mb-8">
-                <div class="bg-pink-700 text-white font-bold p-2 text-center text-lg mb-1 uppercase tracking-wide">
-                    Vacancy Details</div>
-                <table class="info-table text-center shadow-sm">
-                    <thead>
-                        <tr class="bg-gray-100/80">
-                            <th class="py-3 text-pink-900">Post Name</th>
-                            <th class="py-3 text-pink-900">Total Post</th>
-                            <th class="py-3 text-pink-900">Eligibility</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="hover:bg-yellow-50 transition-colors">
-                            <td class="font-bold text-blue-800 py-3" id="vac-post">...</td>
-                            <td class="font-bold text-red-600 py-3" id="vac-total">...</td>
-                            <td class="text-left text-xs md:text-sm py-3 px-4 leading-relaxed" id="vac-elig">...</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <!-- Job Description / Details -->
+                <div class="detail-section">
+                    <h3 class="detail-title">Job Description & Short Info</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm mb-4" id="job-short-info">Loading details...</p>
+                </div>
 
-            <!-- Useful Links (Reduced) -->
-            <div class="mb-4">
-                <div class="bg-green-700 text-white font-bold p-2 text-center text-lg mb-1 uppercase tracking-wide">
-                    Useful Links</div>
-                <table class="info-table text-center shadow-sm">
-                    <tbody>
-                        <tr>
-                            <td class="bg-gray-50 font-bold text-green-800 w-1/2 align-middle py-3">Download
-                                Notification</td>
-                            <td class="align-middle py-3"><span
-                                    class="text-slate-400 font-semibold cursor-not-allowed">Available Soon</span></td>
-                        </tr>
-                        <tr>
-                            <td class="bg-gray-50 font-bold text-green-800 align-middle py-3">FoundJob Official Website
-                            </td>
-                            <td class="align-middle py-3"><a href="/"
-                                    class="font-bold text-blue-700 hover:text-red-600 hover:underline">Click Here</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <!-- Important Dates & Fees -->
+                <div class="detail-section">
+                    <h3 class="detail-title">Important Dates & Application Fees</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Dates -->
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2"><i
+                                    class="ph-fill ph-calendar-check text-green-600"></i> Dates</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex justify-between p-2 bg-gray-50 rounded"><span>Start Date:</span> <span
+                                        class="font-bold text-gray-900" id="date-start">...</span></li>
+                                <li class="flex justify-between p-2 bg-gray-50 rounded"><span>Last Date:</span> <span
+                                        class="font-bold text-red-600" id="date-end">...</span></li>
+                                <li class="flex justify-between p-2 bg-gray-50 rounded"><span>Exam Date:</span> <span
+                                        class="font-bold text-blue-600" id="date-exam">...</span></li>
+                            </ul>
+                        </div>
+                        <!-- Fees -->
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2"><i
+                                    class="ph-fill ph-currency-inr text-yellow-600"></i> Application Fee</h4>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex justify-between p-2 bg-gray-50 rounded"><span>General/OBC:</span> <span
+                                        class="font-bold text-gray-900" id="fee-gen">...</span></li>
+                                <li class="flex justify-between p-2 bg-gray-50 rounded"><span>SC/ST:</span> <span
+                                        class="font-bold text-gray-900" id="fee-scst">...</span></li>
+                                <li class="text-xs text-gray-500 mt-2 px-1">Payment Mode: <span
+                                        id="fee-mode">Online</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eligibility & Vacancy -->
+                <div class="detail-section">
+                    <h3 class="detail-title">Vacancy Details & Eligibility</h3>
+
+                    <!-- Age Limit Box -->
+                    <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 mb-6">
+                        <h4 class="font-bold text-yellow-800 mb-2 text-sm uppercase">Age Limit (as of 01/01/2026)</h4>
+                        <div class="flex gap-6 text-sm font-semibold text-gray-800">
+                            <span>Min: <span id="age-min">...</span></span>
+                            <span>Max: <span id="age-max">...</span></span>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-600">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">Post Name</th>
+                                    <th scope="col" class="px-6 py-3">Total</th>
+                                    <th scope="col" class="px-6 py-3">Eligibility</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b hover:bg-gray-50">
+                                    <td class="px-6 py-4 font-bold text-gray-900" id="vac-post">...</td>
+                                    <td class="px-6 py-4 font-bold text-blue-600" id="vac-total">...</td>
+                                    <td class="px-6 py-4" id="vac-elig">...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Sidebar (Consistent) -->
+            <aside class="w-full lg:w-1/3">
+                <div class="sidebar-widget p-5 sticky top-24">
+                    <div class="text-center">
+                        <div
+                            class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                            <i class="ph-fill ph-bell-ringing"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-900 text-lg mb-2">Never Miss a Job!</h3>
+                        <p class="text-gray-500 text-xs mb-4">Get instant updates on WhatsApp & Telegram.</p>
+                        <div class="space-y-2">
+                            <a href="#"
+                                class="block w-full py-2.5 bg-green-500 text-white font-bold rounded-lg text-sm hover:bg-green-600 transition-colors">Join
+                                WhatsApp</a>
+                            <a href="#"
+                                class="block w-full py-2.5 bg-blue-500 text-white font-bold rounded-lg text-sm hover:bg-blue-600 transition-colors">Join
+                                Telegram</a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
 
         </div>
-
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-white text-center py-8 border-t-4 border-yellow-500 mt-8">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-6 text-xs font-bold uppercase mb-4 tracking-wider">
-                <a href="/" class="hover:text-yellow-400">Home</a>
-                <span class="text-slate-600">|</span>
-                <a href="#" class="hover:text-yellow-400">Contact Us</a>
-                <span class="text-slate-600">|</span>
-                <a href="#" class="hover:text-yellow-400">Privacy Policy</a>
+    <!-- Footer (Consistent) -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+            <div>
+                <div class="text-white text-xl font-bold mb-4 flex items-center gap-2">
+                    <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white">F</div>
+                    FoundJob.in
+                </div>
+                <p class="mb-4">Your trusted partner for finding the best freelance and full-time opportunities in the
+                    tech and non-tech sectors.</p>
             </div>
-            <p class="text-slate-400 text-xs text-center w-full block">Copyright © 2026 FoundJob.in | All rights
-                reserved.</p>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase tracking-wider">Subscribe</h4>
+                <div class="flex">
+                    <input type="email" placeholder="Your Email"
+                        class="w-full px-4 py-2 rounded-l bg-gray-800 border-none focus:ring-1 focus:ring-blue-500">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-r font-bold hover:bg-blue-700">Go</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-xs">
+            &copy; 2026 FoundJob.in. All rights reserved.
         </div>
     </footer>
 

@@ -1,43 +1,48 @@
 import { jobs } from './data.js'
 import './style.css'
 
-function createLinkItem(job) {
-  const li = document.createElement('li');
-  li.innerHTML = `
-        <a href="job-detail.html?id=${job.id}" class="link-item">
-            ${job.title} Online Form 2026
-            ${job.isNew ? '<span class="text-red-600 font-bold ml-1 text-[10px] blink">NEW</span>' : ''}
+function createJobCard(job) {
+  const div = document.createElement('div');
+  // Using simple anchor to detail page
+  div.innerHTML = `
+        <a href="job-detail.html?id=${job.id}" class="block job-card p-5 h-full group">
+            <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg">
+                        ${job.company.charAt(0)}
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-1">${job.title}</h4>
+                        <p class="text-xs text-gray-500 font-medium">${job.company}</p>
+                    </div>
+                </div>
+                ${job.isNew ? '<span class="bg-red-100 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">New</span>' : ''}
+            </div>
+            
+            <div class="flex items-center gap-4 text-xs text-gray-500 font-medium mb-4">
+                 <span class="flex items-center gap-1"><i class="ph-fill ph-briefcase"></i> ${job.category}</span>
+                 <span class="flex items-center gap-1"><i class="ph-fill ph-map-pin"></i> Remote/India</span>
+                 <span class="flex items-center gap-1"><i class="ph-fill ph-clock"></i> ${job.postDate}</span>
+            </div>
+
+            <div class="mt-auto">
+                <span class="inline-block w-full text-center py-2 rounded border border-gray-200 text-gray-700 font-bold text-sm group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all">View Details</span>
+            </div>
         </a>
     `;
-  return li;
+  return div;
 }
 
-function renderColumns() {
-  const techList = document.getElementById('col-tech');
-  const freelanceList = document.getElementById('col-freelance');
-  const nonTechList = document.getElementById('col-nontech');
+function renderJobs() {
+  const jobGrid = document.getElementById('job-grid');
+  if (!jobGrid) return;
 
-  if (techList) {
-    jobs.filter(j => j.category === 'Tech').forEach(job => {
-      techList.appendChild(createLinkItem(job));
-    });
-  }
+  jobGrid.innerHTML = ''; // Clear skeleton
 
-  if (freelanceList) {
-    jobs.filter(j => j.category === 'Freelance').forEach(job => {
-      freelanceList.appendChild(createLinkItem(job));
-    });
-  }
-
-  if (nonTechList) {
-    jobs.filter(j => j.category === 'Non-Tech').forEach(job => {
-      nonTechList.appendChild(createLinkItem(job));
-    });
-  }
+  jobs.forEach(job => {
+    jobGrid.appendChild(createJobCard(job));
+  });
 }
-
-// Initialize
-renderColumns();
 
 // Set Date
 const dateEl = document.getElementById('current-date');
@@ -49,3 +54,6 @@ if (dateEl) {
     year: 'numeric'
   });
 }
+
+// Init
+renderJobs();
