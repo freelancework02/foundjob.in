@@ -20,10 +20,6 @@
       background-color: #ffffff;
     }
 
-    .portal-header-gradient {
-      background: linear-gradient(180deg, #1e3a8a 0%, #172554 100%);
-    }
-
     .box-header {
       font-weight: 800;
       text-transform: uppercase;
@@ -36,7 +32,8 @@
       font-size: 13px;
       font-weight: 600;
       display: block;
-      padding: 4px 0;
+      padding: 6px 0;
+      border-bottom: 1px dotted #ccc;
     }
 
     .link-item:hover {
@@ -61,7 +58,7 @@
 <body class="min-h-screen">
 
   <!-- Top Branding -->
-  <header class="bg-white p-4 text-center border-b-4 border-teal-700">
+  <header class="bg-white p-6 text-center border-b-4 border-teal-700">
     <div class="max-w-7xl mx-auto">
       <h1 class="text-4xl md:text-6xl font-extrabold text-teal-800 tracking-tight mb-2">FOUND JOB IN</h1>
       <p class="text-sm md:text-base font-bold text-slate-700 uppercase tracking-widest">
@@ -73,151 +70,68 @@
   <!-- Navigation Bar -->
   <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
     <div class="max-w-7xl mx-auto px-4">
-      <ul class="flex flex-wrap justify-center gap-1 md:gap-8 text-xs md:text-sm font-bold uppercase py-3">
+      <ul class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm font-bold uppercase py-4">
         <li><a href="#" class="hover:text-yellow-400 transition-colors">Home</a></li>
         <li><a href="#" class="hover:text-yellow-400 transition-colors">Latest Jobs</a></li>
         <li><a href="#" class="hover:text-yellow-400 transition-colors">Tech Projects</a></li>
-        <li><a href="#" class="hover:text-yellow-400 transition-colors">Result</a></li>
-        <li><a href="#" class="hover:text-yellow-400 transition-colors">Admit Card</a></li>
-        <li><a href="#" class="hover:text-yellow-400 transition-colors">Answer Key</a></li>
-        <li><a href="#" class="hover:text-yellow-400 transition-colors">Syllabus</a></li>
+        <li><a href="#" class="hover:text-yellow-400 transition-colors">Freelance</a></li>
         <li><a href="#" class="hover:text-yellow-400 transition-colors">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Marquees -->
-  <div class="bg-yellow-200 border-b-2 border-black py-1.5">
+  <div class="bg-yellow-200 border-b-2 border-black py-2">
     <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"
       class="text-red-700 font-bold text-sm">
-      <a href="#" class="hover:underline">FJI: Urgent Requirement for React Developers (Hourly Basis) Apply Now</a>
-      &nbsp; | &nbsp;
-      <a href="#" class="hover:underline">New Data Entry Projects Added - Work from Home</a> &nbsp; | &nbsp;
-      <a href="#" class="hover:underline">Graphic Design Contest Winners Declared check list here</a>
+      Welcome to FoundJob.in - Your Trusted Source for Freelance & Tech Work Updates. || Latest Projects Updated Daily.
+      || Stay Tuned for New Opportunities.
     </marquee>
   </div>
 
   <!-- Hero / Intro -->
-  <div class="max-w-7xl mx-auto px-2 mt-4 text-center">
-    <h2 class="text-lg md:text-xl font-bold text-pink-700 mb-2">Found Job In : Find Freelance, Full Time & Part Time
-      Jobs</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6">
-      <a href="#" class="bg-blue-600 text-white py-2 font-bold rounded shadow hover:bg-blue-700 text-sm">Join
-        Telegram</a>
-      <a href="#" class="bg-green-600 text-white py-2 font-bold rounded shadow hover:bg-green-700 text-sm">Join
-        WhatsApp</a>
-      <a href="#" class="bg-sky-500 text-white py-2 font-bold rounded shadow hover:bg-sky-600 text-sm">Twitter</a>
-      <a href="#" class="bg-red-600 text-white py-2 font-bold rounded shadow hover:bg-red-700 text-sm">Instagram</a>
-    </div>
+  <div class="max-w-7xl mx-auto px-2 mt-6 text-center mb-6">
+    <h2 class="text-xl md:text-2xl font-bold text-pink-700">Find Freelance, Full Time & Part Time Jobs</h2>
+    <p class="text-sm text-slate-600 mt-2 font-semibold">Latest Listings Updated: <span id="current-date"></span></p>
   </div>
 
-  <!-- Main 3 Column Layout (The "Sarkari" Grid) -->
-  <!-- Colored Boxes Layout requested by user -->
-  <div class="max-w-7xl mx-auto px-2 py-2">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-4 font-sans">
+  <!-- Main 3 Column Layout -->
+  <div class="max-w-7xl mx-auto px-2 py-2 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-6 font-sans">
 
-      <!-- Column 1: Tech / Result style -->
-      <div class="border-2 border-pink-700 mb-4 md:mb-0">
-        <div class="bg-pink-700 text-white text-center py-2 text-lg box-header">
+      <!-- Column 1: Tech -->
+      <div class="border-2 border-pink-700 mb-6 md:mb-0 shadow-sm">
+        <div class="bg-pink-700 text-white text-center py-2.5 text-lg box-header tracking-wide">
           TECH JOBS / PROJECTS
         </div>
-        <div class="p-3 bg-white min-h-[400px]">
-          <ul class="space-y-3 text-center" id="col-tech">
+        <div class="p-4 bg-white min-h-[400px]">
+          <ul class="space-y-3.5 text-center" id="col-tech">
             <!-- JS Injected -->
           </ul>
-          <div class="text-center mt-4">
-            <a href="#" class="text-xs font-bold text-slate-500 hover:text-black">View More Tech Jobs...</a>
-          </div>
         </div>
       </div>
 
-      <!-- Column 2: Admit Card style (Middle) -->
-      <div class="border-2 border-teal-700 mb-4 md:mb-0">
-        <div class="bg-teal-700 text-white text-center py-2 text-lg box-header">
+      <!-- Column 2: Freelance -->
+      <div class="border-2 border-teal-700 mb-6 md:mb-0 shadow-sm">
+        <div class="bg-teal-700 text-white text-center py-2.5 text-lg box-header tracking-wide">
           FREELANCE / GIGS
         </div>
-        <!-- Highlighted Top Link -->
-        <div class="bg-yellow-100 p-2 text-center border-b border-teal-200">
-          <a href="#" class="text-red-700 font-bold text-sm blink">Apply: Senior Python Dev (Remote) 2026</a>
-        </div>
-
-        <div class="p-3 bg-white min-h-[400px]">
-          <ul class="space-y-3 text-center" id="col-freelance">
+        <div class="p-4 bg-white min-h-[400px]">
+          <ul class="space-y-3.5 text-center" id="col-freelance">
             <!-- JS Injected -->
           </ul>
-          <div class="text-center mt-4">
-            <a href="#" class="text-xs font-bold text-slate-500 hover:text-black">View More Freelance...</a>
-          </div>
         </div>
       </div>
 
-      <!-- Column 3: Latest Jobs style -->
-      <div class="border-2 border-indigo-800 mb-4 md:mb-0">
-        <div class="bg-indigo-800 text-white text-center py-2 text-lg box-header">
+      <!-- Column 3: Non-Tech -->
+      <div class="border-2 border-indigo-800 mb-6 md:mb-0 shadow-sm">
+        <div class="bg-indigo-800 text-white text-center py-2.5 text-lg box-header tracking-wide">
           NON-TECH / DATA
         </div>
-        <div class="p-3 bg-white min-h-[400px]">
-          <ul class="space-y-3 text-center" id="col-nontech">
+        <div class="p-4 bg-white min-h-[400px]">
+          <ul class="space-y-3.5 text-center" id="col-nontech">
             <!-- JS Injected -->
           </ul>
-          <div class="text-center mt-4">
-            <a href="#" class="text-xs font-bold text-slate-500 hover:text-black">View More Non-Tech...</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Secondary Links Section (Horizontal Grid) -->
-  <div class="max-w-7xl mx-auto px-2 mt-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-
-      <!-- Box 1 -->
-      <div class="border border-slate-300">
-        <div class="bg-slate-800 text-white text-center font-bold py-1.5 uppercase text-sm">
-          Answer Key
-        </div>
-        <div class="p-2 bg-white text-center text-xs font-semibold leading-6">
-          <a href="#" class="block hover:text-red-600 hover:underline">Google Cloud Answer Key 2026</a>
-          <a href="#" class="block hover:text-red-600 hover:underline">AWS Cert Exam Key</a>
-          <a href="#" class="block hover:text-red-600 hover:underline">Azure Fundamentals Key</a>
-        </div>
-      </div>
-
-      <!-- Box 2 -->
-      <div class="border border-slate-300">
-        <div class="bg-slate-800 text-white text-center font-bold py-1.5 uppercase text-sm">
-          Syllabus
-        </div>
-        <div class="p-2 bg-white text-center text-xs font-semibold leading-6">
-          <a href="#" class="block hover:text-red-600 hover:underline">React Advanced Syllabus</a>
-          <a href="#" class="block hover:text-red-600 hover:underline">Python Mastery Path</a>
-          <a href="#" class="block hover:text-red-600 hover:underline">Data Science 2026</a>
-        </div>
-      </div>
-
-      <!-- Box 3 -->
-      <div class="border border-slate-300">
-        <div class="bg-slate-800 text-white text-center font-bold py-1.5 uppercase text-sm">
-          Admission
-        </div>
-        <div class="p-2 bg-white text-center text-xs font-semibold leading-6">
-          <a href="#" class="block hover:text-red-600 hover:underline">Bootcamp Entry 2026</a>
-          <a href="#" class="block hover:text-red-600 hover:underline">Design School Fall</a>
-          <a href="#" class="block hover:text-red-600 hover:underline">MBA Tech Admits</a>
-        </div>
-      </div>
-
-      <!-- Box 4 -->
-      <div class="border border-slate-300">
-        <div class="bg-slate-800 text-white text-center font-bold py-1.5 uppercase text-sm">
-          Important
-        </div>
-        <div class="p-2 bg-white text-center text-xs font-semibold leading-6">
-          <a href="#" class="block hover:text-red-600 hover:underline">Scholarship 2026</a>
-          <a href="#" class="block hover:text-red-600 hover:underline">Internship Forms</a>
-          <a href="#" class="block hover:text-red-600 hover:underline">Govt Tech Initiatives</a>
         </div>
       </div>
 
@@ -226,14 +140,14 @@
 
   <!-- Long SEO/Info Section at bottom -->
   <div class="max-w-7xl mx-auto px-2 mt-8 mb-8">
-    <div class="border border-slate-300 p-4 bg-slate-50">
-      <h3 class="text-red-700 font-bold text-lg mb-2">About FoundJob.in</h3>
-      <p class="text-sm text-slate-700 text-justify mb-2">
+    <div class="border border-slate-300 p-6 bg-slate-50 rounded-sm">
+      <h3 class="text-red-700 font-bold text-lg mb-3">About FoundJob.in</h3>
+      <p class="text-sm text-slate-700 text-justify mb-3 leading-relaxed">
         FoundJob.in is a leading portal for Freelance Jobs, Tech Projects, and Remote Work opportunities. We segregate
         information into clear categories aligned with standard job portal formats to help you find work quickly.
         Whether you are a Graphic Designer, Web Developer, or Data Analyst, we have listings for you.
       </p>
-      <p class="text-sm text-slate-700 text-justify">
+      <p class="text-sm text-slate-700 text-justify leading-relaxed">
         <strong>Disclaimer:</strong> All jobs listed are verified to the best of our ability. However, candidates are
         requested to verify details before payment or sharing personal info.
       </p>
@@ -241,9 +155,9 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-white text-center py-6 border-t-4 border-yellow-500">
+  <footer class="bg-slate-900 text-white text-center py-8 border-t-4 border-yellow-500">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="flex flex-wrap justify-center gap-4 text-xs font-bold uppercase mb-4">
+      <div class="flex flex-wrap justify-center gap-6 text-xs font-bold uppercase mb-4 tracking-wider">
         <a href="#" class="hover:text-yellow-400">Home</a>
         <span class="text-slate-600">|</span>
         <a href="#" class="hover:text-yellow-400">About Us</a>

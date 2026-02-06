@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Details - FoundJob.in</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .box-header {
+            font-weight: 800;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .info-table td,
+        .info-table th {
+            border: 1px solid #000;
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white p-6 text-center border-b-4 border-teal-700">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-teal-800 tracking-tight cursor-pointer"
+                onclick="window.location.href='/'">FOUND JOB IN</h1>
+            <p class="text-xs md:text-sm font-bold text-slate-700 uppercase tracking-widest">
+                India's No. 1 Freelance, Remote & Part Time Job Portal
+            </p>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+            <ul class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm font-bold uppercase py-4">
+                <li><a href="/" class="hover:text-yellow-400 transition-colors">Home</a></li>
+                <li><a href="/" class="hover:text-yellow-400 transition-colors">Latest Jobs</a></li>
+                <li><a href="/" class="hover:text-yellow-400 transition-colors">Tech Projects</a></li>
+                <li><a href="/" class="hover:text-yellow-400 transition-colors">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4 py-8">
+
+        <!-- Job Title -->
+        <h1 class="text-center text-3xl font-extrabold text-red-700 mb-2 leading-tight" id="job-title">Loading Job
+            Details...</h1>
+        <div class="text-center font-bold text-slate-600 mb-8 text-lg" id="job-company"></div>
+
+        <!-- Detail Box Content -->
+        <div class="border border-black p-6 shadow-md">
+
+            <div class="mb-6">
+                <span class="text-pink-700 font-bold block mb-1 text-lg">Short Information: </span>
+                <span class="text-justify text-sm leading-relaxed text-slate-800" id="job-short-info">Loading...</span>
+            </div>
+
+            <!-- Important Dates & Fees Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Important Dates -->
+                <div class="border border-green-700 shadow-sm">
+                    <div class="bg-green-700 text-white font-bold p-2 text-center uppercase tracking-wide">Important
+                        Dates</div>
+                    <ul class="p-4 text-sm font-semibold space-y-3">
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-2"><span>Application
+                                Begin:</span> <span class="text-black font-bold" id="date-start">...</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-2"><span>Last Date for
+                                Apply:</span> <span class="text-red-600 font-bold" id="date-end">...</span></li>
+                        <li class="flex justify-between"><span>Exam Date:</span> <span class="text-red-600 font-bold"
+                                id="date-exam">...</span></li>
+                    </ul>
+                </div>
+
+                <!-- Application Fee -->
+                <div class="border border-green-700 shadow-sm">
+                    <div class="bg-green-700 text-white font-bold p-2 text-center uppercase tracking-wide">Application
+                        Fee</div>
+                    <ul class="p-4 text-sm font-semibold space-y-3">
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-2"><span>General / OBC
+                                / EWS:</span> <span class="text-black font-bold" id="fee-gen">...</span></li>
+                        <li class="flex justify-between border-b border-dashed border-gray-200 pb-2"><span>SC / ST /
+                                PH:</span> <span class="text-black font-bold" id="fee-scst">...</span></li>
+                        <li class="mt-2 text-xs font-normal text-slate-500 italic">Pay the Examination Fee Through <span
+                                id="fee-mode">...</span> Only.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Age Limit -->
+            <div class="border border-black mb-8 shadow-sm">
+                <div
+                    class="bg-gray-100 text-black font-bold p-2 text-center border-b border-black uppercase text-sm tracking-wide">
+                    Age Limit as on 01/01/2026</div>
+                <div class="p-4 text-center text-sm font-bold flex flex-col md:flex-row justify-center gap-4 md:gap-12">
+                    <span class="p-2 bg-slate-50 rounded border border-slate-200">Minimum Age: <span
+                            class="text-red-700" id="age-min">..</span></span>
+                    <span class="p-2 bg-slate-50 rounded border border-slate-200">Maximum Age: <span
+                            class="text-red-700" id="age-max">..</span></span>
+                </div>
+                <div class="text-center pb-2 text-xs text-slate-500">Age Relaxation Extra as per Rules.</div>
+            </div>
+
+            <!-- Vacancy Details Table -->
+            <div class="mb-8">
+                <div class="bg-pink-700 text-white font-bold p-2 text-center text-lg mb-1 uppercase tracking-wide">
+                    Vacancy Details</div>
+                <table class="info-table text-center shadow-sm">
+                    <thead>
+                        <tr class="bg-gray-100/80">
+                            <th class="py-3 text-pink-900">Post Name</th>
+                            <th class="py-3 text-pink-900">Total Post</th>
+                            <th class="py-3 text-pink-900">Eligibility</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="hover:bg-yellow-50 transition-colors">
+                            <td class="font-bold text-blue-800 py-3" id="vac-post">...</td>
+                            <td class="font-bold text-red-600 py-3" id="vac-total">...</td>
+                            <td class="text-left text-xs md:text-sm py-3 px-4 leading-relaxed" id="vac-elig">...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Useful Links (Reduced) -->
+            <div class="mb-4">
+                <div class="bg-green-700 text-white font-bold p-2 text-center text-lg mb-1 uppercase tracking-wide">
+                    Useful Links</div>
+                <table class="info-table text-center shadow-sm">
+                    <tbody>
+                        <tr>
+                            <td class="bg-gray-50 font-bold text-green-800 w-1/2 align-middle py-3">Download
+                                Notification</td>
+                            <td class="align-middle py-3"><span
+                                    class="text-slate-400 font-semibold cursor-not-allowed">Available Soon</span></td>
+                        </tr>
+                        <tr>
+                            <td class="bg-gray-50 font-bold text-green-800 align-middle py-3">FoundJob Official Website
+                            </td>
+                            <td class="align-middle py-3"><a href="/"
+                                    class="font-bold text-blue-700 hover:text-red-600 hover:underline">Click Here</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white text-center py-8 border-t-4 border-yellow-500 mt-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-6 text-xs font-bold uppercase mb-4 tracking-wider">
+                <a href="/" class="hover:text-yellow-400">Home</a>
+                <span class="text-slate-600">|</span>
+                <a href="#" class="hover:text-yellow-400">Contact Us</a>
+                <span class="text-slate-600">|</span>
+                <a href="#" class="hover:text-yellow-400">Privacy Policy</a>
+            </div>
+            <p class="text-slate-400 text-xs text-center w-full block">Copyright © 2026 FoundJob.in | All rights
+                reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/detail.js"></script>
+</body>
+
+</html>
